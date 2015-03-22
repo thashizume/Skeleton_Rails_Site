@@ -16,8 +16,9 @@
 	3. static#aboutus
 	4. user#new
 		4-1. authenticate of email
-		4-2. authenticate of facebook
-		4-3. authenticate of twitter
+		4-2. authenticate of SNS
+		Ref. http://qiita.com/awakia/items/03dd68dea5f15dc46c15
+		 
 	5. user#edit
 	6. user#remove
 
