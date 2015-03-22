@@ -2,12 +2,12 @@ SkeletonRailsSite::Application.routes.draw do
 
 	root	'static#home'
 	match	'/help',		to:'static#help',			via:'get'
-	match '/aboutus',	to:'statuc#aboutus',	via:'get'
+	match '/aboutus',	to:'static#aboutus',	via:'get'
 
 
-#  get "static/home"
-#  get "static/help"
-#  get "static/aboutus"
+  get "static/home"
+  get "static/help"
+  get "static/aboutus"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
