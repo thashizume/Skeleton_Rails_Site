@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.5'
 
+gem 'bootstrap-sass', '2.3.2.0'
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
