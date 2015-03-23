@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :access_token
       t.string :access_secret
       t.string :name
+			t.string :password
       t.string :nickname
       t.string :email
       t.string :url

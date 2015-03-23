@@ -8,6 +8,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'sprockets', '2.11.0'
+gem 'bcrypt-ruby', '3.1.2'
 
 #	OAuth Depend Gem
 gem 'devise'
@@ -19,7 +21,7 @@ gem 'omniauth-hatena'
 gem 'omniauth-linkedin'
 gem 'omniauth-mixi'
 gem 'omniauth-twitter'
-
+# end of OAuth Gem
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
