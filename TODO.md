@@ -9,3 +9,9 @@
 
 ## Tutorial TODO
 http://railstutorial.jp/chapters/modeling-users?version=4.0#top validation
+
+
+## TODO
+* password digest
+* error messageの日本語化
+
