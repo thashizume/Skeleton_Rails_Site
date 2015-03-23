@@ -12,6 +12,6 @@ http://railstutorial.jp/chapters/modeling-users?version=4.0#top validation
 
 
 ## TODO
-* password digest
+* <s>password digest</s>
 * error messageの日本語化
 
