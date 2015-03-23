@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.5'
-
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'sass-rails', '~> 4.0.2'
 gem 'uglifier', '>= 1.3.0'
@@ -9,6 +8,18 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+
+#	OAuth Depend Gem
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-hatena'
+gem 'omniauth-linkedin'
+gem 'omniauth-mixi'
+gem 'omniauth-twitter'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -31,10 +42,5 @@ group :production do
 	gem 'rails_12factor', '0.0.2'
 
 end
-
-
-
-
-
 
 
