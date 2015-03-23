@@ -1,15 +1,14 @@
 class SessionsController < ApplicationController
 
 	def new
+		logger.debug("*********** #{File.basename(__FILE__)} #{__method__}")
 	end
-
-
 
 	#	ログイン処理
 	# @param [:session, :email, :password]
 	# @return render
 	def create
-		logger.debug("sessions controller -- call create method")
+		logger.debug("********** #{File.basename(__FILE__)} #{__method__}")
 		@user = User.find_by(email: params[:session][:email].downcase)
 		
 #		logger.debug("sessions controller -- user valid? -- #{@user.id}")	
@@ -33,5 +32,6 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
+		logger.debug("********** #{File.basename(__FILE__)} #{__method__}")
 	end
 end

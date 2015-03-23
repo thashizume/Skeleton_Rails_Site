@@ -6,18 +6,20 @@ class User < ActiveRecord::Base
 	validates(:password, presence: true, length: {minimum: 6})
 	has_secure_password
 
-
 	def User.new_remember_token
+		logger.debug("********** #{File.basename(__FILE__)} #{__method__}")
 		SecureRandom.urlsafe_base64
 	end
 	
 	def User.encrypt(token)
-		logger.debug("model/user - #{@token.to_s}")
+		logger.debug("********** #{File.basename(__FILE__)} #{__method__}")
+		logger.debug("********** #{File.basename(__FILE__)} token value: #{@token.to_s}")
 		Digest::SHA1.hexdigest(token.to_s)
 	end
 
 	private
 		def create_remember_token
+			logger.debug("********** #{File.basename(__FILE__)} #{__method__}")
 			salf.remember_token = User.encrypt(User.new_remember_token)
 		end
 
