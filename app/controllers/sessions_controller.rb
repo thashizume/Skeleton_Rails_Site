@@ -11,8 +11,7 @@ class SessionsController < ApplicationController
 		logger.debug("********** #{File.basename(__FILE__)} #{__method__}")
 		@user = User.find_by(email: params[:session][:email].downcase)
 		
-#		logger.debug("sessions controller -- user valid? -- #{@user.id}")	
-#		logger.debug("sessions controller -- authenticate -- #{@user.authenticate(params[:session][:password])}")	
+		logger.debug("********** #{File.basename(__FILE__)} #{__method__} #{params[:session][:email].downcase}")
 		
 		if @user && @user.authenticate(params[:session][:password])
 			# sign in し、user#show にリダイレクトする				
@@ -22,7 +21,7 @@ class SessionsController < ApplicationController
 						
 		else
 			# login failed. output error message
-			logger.debug("sessions controller -- login failed")
+			logger.debug("********** #{File.basename(__FILE__)} #{__method__} : Login failed")
 			flash.now[:error] = "invalid email/password combination" 
 			render 'new'			# session#new を renderする
 						

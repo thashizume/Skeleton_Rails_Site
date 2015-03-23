@@ -2,10 +2,6 @@ module SessionsHelper
 
 	def sign_in(user)
 		logger.debug("********** #{File.basename(__FILE__)} #{__method__}")	
-		
-		
-		logger.debug("SessonsHelper.sign_in")	
-	
 	
 		remember_token = User.new_remember_token
 		cookies.permanent[:remember_token] = remember_token
@@ -31,7 +27,7 @@ module SessionsHelper
 
 	def signed_in?
 		logger.debug("********** #{File.basename(__FILE__)} #{__method__}")	
-		!current_user.nul?
+		!current_user.nil?
 	end
 
 
