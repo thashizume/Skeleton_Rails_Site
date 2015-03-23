@@ -8,7 +8,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
-gem 'sprockets', '2.11.0'
+gem 'sprockets', '2.12.3'
 gem 'bcrypt-ruby', '3.1.2'
 
 #	OAuth Depend Gem
