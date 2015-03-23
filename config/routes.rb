@@ -1,10 +1,16 @@
 SkeletonRailsSite::Application.routes.draw do
+	
+	# Enable REST Style URL
+	resource :users
 
   get "users/new"
 	root	'static#home'
 	match	'/help',		to:'static#help',			via:'get'
 	match '/aboutus',	to:'static#aboutus',	via:'get'
 	match '/signup',	to:'users#new',	via:'get'
+	match '/users/1',	to:'users#show',	via:'get'
+
+
 
   get "static/home"
   get "static/help"
