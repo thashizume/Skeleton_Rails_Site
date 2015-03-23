@@ -1,24 +1,11 @@
 # Skeleton Site of Ruby on Rails
 
 ## Introduction
+Ruby on Rails と Heroku を利用したスケルトンサイト
+用途としてサイト構築を簡易に実現するためのものである
 
+本スケルトンは以下URLからアクセスが可能となる
+https://hidden-citadel-8093.herokuapp.com/
 
 ## TODO
-* Navigation Page
-	1. Home
-	2. Help
-	3. About us
-	4. Signin
-
-* Pages
-	1. static#home
-	2. static#help
-	3. static#aboutus
-	4. user#new
-		4-1. authenticate of email
-		4-2. authenticate of SNS
-		Ref. http://qiita.com/awakia/items/03dd68dea5f15dc46c15
-		 
-	5. user#edit
-	6. user#remove
-
+	ref TODO.md
