@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 	end
 	
 	def User.encrypt(token)
+		logger.debug("model/user - #{@token.to_s}")
 		Digest::SHA1.hexdigest(token.to_s)
 	end
 

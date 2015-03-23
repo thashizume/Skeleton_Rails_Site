@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 	end
 
 	def create
+		logger.debug("users controller -- call create method")
 		@user = User.new(user_params)
 		@user.user_id = @user.id
 		if @user.save

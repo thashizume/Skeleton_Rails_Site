@@ -9,6 +9,12 @@ class SessionsController < ApplicationController
 	# @param [:session, :email, :password]
 	# @return render
 	def create
+		logger.debug("sessions controller -- call create method")
+			
+		
+		
+		
+		
 		user = User.find_by(email: params[:session][:email].downcase)
 		if user && user.authenticate(params[:session][:password])
 			# sign in し、user#show にリダイレクトする				
@@ -18,7 +24,8 @@ class SessionsController < ApplicationController
 						
 		else
 			# login failed. output error message
-			flash[:error] = "invalid email/password combination" 
+			logger.debug("sessions controller -- login failed")
+			flash.now[:error] = "invalid email/password combination" 
 			render 'new'			# session#new を renderする
 						
 		end	
