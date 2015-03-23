@@ -1,9 +1,10 @@
 SkeletonRailsSite::Application.routes.draw do
 
+  get "users/new"
 	root	'static#home'
 	match	'/help',		to:'static#help',			via:'get'
 	match '/aboutus',	to:'static#aboutus',	via:'get'
-
+	match '/signup',	to:'users#new',	via:'get'
 
   get "static/home"
   get "static/help"
