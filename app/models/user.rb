@@ -1,3 +1,4 @@
+#coding: utf-8
 class User < ActiveRecord::Base
 	before_save {self.email = email.downcase }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -10,11 +11,15 @@ class User < ActiveRecord::Base
 		logger.debug("********** #{File.basename(__FILE__)} #{__method__}")
 		SecureRandom.urlsafe_base64
 	end
-	
+
+	#
+	#	SessionHelperi からコールされる
+	#
 	def User.encrypt(token)
 		logger.debug("********** #{File.basename(__FILE__)} #{__method__}")
-		logger.debug("********** #{File.basename(__FILE__)} token value: #{@token.to_s}")
-		Digest::SHA1.hexdigest(token.to_s)
+		logger.debug("********** #{File.basename(__FILE__)} token string: #{token.to_s}")
+		logger.debug("********** #{File.basename(__FILE__)} token digest: #{Digest::SHA1.hexdigest(token.to_s)}")
+		return Digest::SHA1.hexdigest(token.to_s)
 	end
 
 	private

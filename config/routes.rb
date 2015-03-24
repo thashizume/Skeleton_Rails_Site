@@ -8,8 +8,8 @@ SkeletonRailsSite::Application.routes.draw do
 	match	'/help',		to:'static#help',			via:'get'
 	match '/aboutus',	to:'static#aboutus',	via:'get'
 	match '/signup',	to:'users#new',	via:'get'
-	match '/signin',	to:'session#new',	via:'get'
-	match '/signout',	to:'session#destroy',	via:'delete'
+	match '/signin',	to:'sessions#create',	via:'post'
+	match '/signout',	to:'sessions#destroy',	via:'delete'
 #	match '/users',	to:'users#show',	via:'get'
 
 
