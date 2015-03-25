@@ -10,5 +10,12 @@ module ApplicationHelper
 		end
 	end
 
+	def hhh
+		logger.debug("********** #{File.basename(__FILE__)} #{__method__}")	
+		user = current_user
+		logger.debug("********** #{File.basename(__FILE__)} #{__method__} user is empty? #{user.empty?}")	
+
+	end
+
 
 end

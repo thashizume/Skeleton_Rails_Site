@@ -2,6 +2,7 @@ SkeletonRailsSite::Application.routes.draw do
 	
 	# Enable REST Style URL
 	resources :users
+	resources :anonymous
 	resources :sessions, only: [:new, :create, :destroy]
 
 	root	'static#home'
@@ -11,7 +12,6 @@ SkeletonRailsSite::Application.routes.draw do
 	match '/signin',	to:'sessions#create',	via:'post'
 	match '/signout',	to:'sessions#destroy',	via:'delete'
 #	match '/users',	to:'users#show',	via:'get'
-
 
   get "users/new"
 	get "users/show"

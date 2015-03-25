@@ -1,49 +1,51 @@
 module SessionsHelper
-
+	
+	#
+	#
+	#
+	#
 	def sign_in(user)
 		logger.debug("********** #{File.basename(__FILE__)} #{__method__}")	
 	
-		remember_token = User.new_remember_token
-		cookies.permanent[:remember_token] = remember_token
-		user.update_attribute(:remember_token, User.encrypt(remember_token))
-		self.current_user = user
-
+		token = Anonymous.new_token
+		cookies[:token] = token
+		Anonymous.update_attribute(:token = Anonymous.encrypt(token))
+		self.current_user = anonymous 
 	end
 
-	def current_user=(user)
+	def current_user=(anonymous)
 		logger.debug("********** #{File.basename(__FILE__)} #{__method__} : get user")	
-		@current_user = user
+		@current_user = anonymous 
 	end
 
-=begin
 	def current_user
 		logger.debug("********** #{File.basename(__FILE__)} #{__method__} : get token string")	
-
-		remember_token = User.encrypt(cookies[:remember_token])
-		logger.debug("********** #{File.basename(__FILE__)} #{__method__} : return token string #{remember_token}")  
-		@current_user ||= User.find_by(remember_token: remember_token)
-		logger.debug("********** #{File.basename(__FILE__)} #{__method__} : #{@current_user.name}")  
-	
-		return  @current_user.nil?
-
+		token = Anonymous.encrypt(cookies[:remember_token])
+		logger.debug("********** #{File.basename(__FILE__)} #{__method__} : return token string #{token}")  
+		@current_user ||=Anonymous.find_by(token: token)
 	end
-=end
+
+	def current_user?(anonymous)
+		user == current_user
+	end
+
 	#
 	#
 	#
 	def signed_in?
 		logger.debug("********** #{File.basename(__FILE__)} #{__method__}")	
-    remember_token = User.encrypt(cookies[:remember_token])
-    logger.debug("********** #{File.basename(__FILE__)} #{__method__} : return token string #{remember_token}")    
-		@current_user ||= User.find_by(remember_token: remember_token)
+    token = Anonymous.encrypt(cookies[:remember_token])
+    logger.debug("********** #{File.basename(__FILE__)} #{__method__} : return token string #{token}")    
+		@current_guest ||= Anonymous.find_by(token: token)
 
-		if @current_user.nil?
-			logger.debug("********** #{File.basename(__FILE__)} #{__method__} : is null? #{@current_user.nil?}")
-			cookies.delete(:remember_token)
-			logger.debug("********** #{File.basename(__FILE__)} #{__method__} : deleted cookie :remember_token") 
+		if @current_guest.nil?
+			logger.debug("********** #{File.basename(__FILE__)} #{__method__} : is null? #{@current_guest.nil?}")
+			#cookies.delete(:remember_token)
+			cookies[:token] = { :value => ''}
+			logger.debug("********** #{File.basename(__FILE__)} #{__method__} : deleted cookie :token") 
 			return false		
 		else
-			logger.debug("********** #{File.basename(__FILE__)} #{__method__} : #{@current_user.name}")
+			logger.debug("********** #{File.basename(__FILE__)} #{__method__} : #{@current_guest.nickname}")
 			return true
 		end
 	end

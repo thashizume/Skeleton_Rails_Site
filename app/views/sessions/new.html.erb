@@ -7,8 +7,8 @@
 	<%= form_for(:sessions, url:sessions_path) do |f| %>
 
 	
-	<%= f.label :email %>
-	<%= f.text_field(:email) %>
+	<%= f.label :nickname %>
+	<%= f.text_field(:nickname) %>
 
 	<%= f.label :password %>
 	<%= f.password_field :password %>
@@ -17,7 +17,7 @@
 
 	<% end %>
 
-	<p>New User? <%= link_to "Sign up now!!" , users_new_path %></p>
+	<p>New User? <%= link_to "Sign up now!!" , new_anonymou_path %></p>
 
 </div>
 </div>
