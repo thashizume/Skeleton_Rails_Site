@@ -1,11 +1,14 @@
 # Skeleton Site of Ruby on Rails
 
+## Tutorial URL
+http://railstutorial.jp/
+
 ## Introduction
-Ruby on Rails と Heroku を利用したスケルトンサイト
-用途としてサイト構築を簡易に実現するためのものである
+This repository is ruby on rails and Heroku  skeleton program
 
-本スケルトンは以下URLからアクセスが可能となる
+## Demo Site
 https://hidden-citadel-8093.herokuapp.com/
+this site is Heroku Site
 
-## TODO
-	ref TODO.md
+
+
