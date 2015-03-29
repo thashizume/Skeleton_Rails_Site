@@ -3,6 +3,7 @@
 ## Tutorial URL
 http://railstutorial.jp/
 
+
 ## Introduction
 This repository is ruby on rails and Heroku  skeleton program
 
