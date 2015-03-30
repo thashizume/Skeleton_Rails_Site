@@ -43,6 +43,11 @@ module SessionsHelper
 	def signed_in?
 		logger.debug("********** #{File.basename(__FILE__)} #{__method__}")	
 
+		if cookies.nil?
+			logger.debug("********** #{File.basename(__FILE__)} #{__method__}:cookie is null")	
+			return false
+		end 
+
 		if cookies[:token].empty?
     	logger.debug("********** #{File.basename(__FILE__)} #{__method__} : cookie token is null")
 			return false 
