@@ -33,6 +33,9 @@ module SessionsHelper
 		@current_user ||=Anonymous.find_by(token: token)
 	end
 
+
+
+
 	def current_user?(anonymous)
 		user == current_user
 	end
@@ -49,25 +52,25 @@ module SessionsHelper
 		end 
 
 		if cookies[:token].blank?
-    	logger.debug("********** #{File.basename(__FILE__)} #{__method__} : cookie token is null")
+    	logger.debug("********** #{File.basename(__FILE__)} #{__method__} : cookie[:token] is null")
 			return false 
 		end
-    	logger.debug("********** #{File.basename(__FILE__)} #{__method__} : get cookie token string #{cookies[:token]}")
-			logger.debug("********** #{File.basename(__FILE__)} #{__method__} : return token string #{token}")    
-    	token = Anonymous.encrypt(cookies[:token])
+
+		#	Cookieが適切な値がある場合
+   	logger.debug("********** #{File.basename(__FILE__)} #{__method__} : get cookie token string #{cookies[:token]}")
+		logger.debug("********** #{File.basename(__FILE__)} #{__method__} : return token string #{token}")    
+   	token = Anonymous.encrypt(cookies[:token])
 	
-			@current_guest ||= Anonymous.find_by(token: token)
-			if @current_guest.nul?
-				#cookies.delete(:token)
-				# Cookieはあるが、データベースに値がない場合
-				cookies[:token] = { :value => ''}
-				return false
-			else
-
-				logger.debug("********** #{File.basename(__FILE__)} #{__method__} : #{@current_guest.nickname}")
-				return true
-			end 
-
+		@current_guest ||= Anonymous.find_by(token: token)
+		if @current_guest.nul?
+			#cookies.delete(:token)
+			# Cookieはあるが、データベースに値がない場合
+			cookies[:token] = { :value => ''}
+			return false
+		else
+			logger.debug("********** #{File.basename(__FILE__)} #{__method__} : #{@current_guest.nickname}")
+			return true
+		end 
 	end # end of signed_in?
 
 end
