@@ -48,7 +48,7 @@ module SessionsHelper
 			return false
 		end 
 
-		if cookies[:token].empty?
+		if cookies[:token].nil?
     	logger.debug("********** #{File.basename(__FILE__)} #{__method__} : cookie token is null")
 			return false 
 		end
